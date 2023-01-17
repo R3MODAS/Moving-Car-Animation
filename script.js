@@ -1,25 +1,26 @@
 const surface = document.querySelector(".surface");
 const car = document.querySelector(".car");
 const img = document.querySelector(".car-img");
-const cars = ["assets/Img_05.png", "assets/Img_06.png"];
+const imgChange = ["assets/Img_05.png","assets/Img_06.png"]
 let flag = true;
+console.log(surface);
 
-document.addEventListener("keypress", (e) => {
-  if (e.key === "Enter") {
-    console.log(e);
-    surface.classList.toggle("moveRight");
+document.addEventListener('keypress',(event)=>{
+
+  console.log(event.key);
+  if(event.key === 'Enter'){
+    surface.classList.toggle('moveRight');
     car.classList.toggle("suspension");
   }
-});
 
-document.addEventListener("keypress", (e) => {
-  if (e.key === "w") {
-    if (flag) {
+  if(event.key == 'w'){
+    if(flag){
+      img.src = imgChange[0];
       flag = false;
-      img.setAttribute("src", cars[0]);
-    } else {
+    }
+    else{
+      img.src = imgChange[1];
       flag = true;
-      img.setAttribute("src", cars[1]);
     }
   }
 });
